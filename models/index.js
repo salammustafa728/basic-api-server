@@ -1,8 +1,9 @@
 'use strict';
-
+require('dotenv').config();
 const {Sequelize, DataTypes} = require('sequelize');
 const food = require('./food.model');
 const cloths = require('./clothes.model')
+
 
 const POSTGRES_URL = process.env.DATABASE_URL
 
