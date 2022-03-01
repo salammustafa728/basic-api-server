@@ -18,15 +18,16 @@ describe("test API server ", () => {
     expect(response.status).toEqual(404);
   });
 });
+beforeAll(async () => {
+  await db.sync();
+});
+afterAll(async () => {
+  await db.drop();
+});
 //DB tests
 // test cloths routes
 describe("test API server for cloths route ", () => {
-  beforeAll(async () => {
-    await db.sync();
-  });
-  afterAll(async () => {
-    await db.drop();
-  });
+ 
   it('testing all clothes',async()=>{
     const response = await request.get('/cloths')
     expect(response.status).toEqual(200)
@@ -63,12 +64,7 @@ expect(response.status).toEqual(204)
 // test food route
 
 describe("test API server for food route", () => {
-  beforeAll(async () => {
-    await db.sync();
-  });
-  afterAll(async () => {
-    await db.drop();
-  });
+ 
   it('testing all foodInfo',async()=>{
     const response = await request.get('/food')
     expect(response.status).toEqual(200)
